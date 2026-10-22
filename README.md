@@ -25,3 +25,8 @@ Con este proyecto aprendí a utilizar algunas herramientas de Tkinter para crear
 
 <img width="1082" height="768" alt="image" src="https://github.com/user-attachments/assets/7dc359c4-714b-43b8-9422-aee54a9ea627" />
 
+<img width="870" height="486" alt="image" src="https://github.com/user-attachments/assets/b5f51737-e24e-4ded-823e-18cfcb4503b4" />
+
+<img width="837" height="406" alt="image" src="https://github.com/user-attachments/assets/8b118350-80b8-48e4-ba94-1fe728b28be4" />
+
+<img width="885" height="412" alt="image" src="https://github.com/user-attachments/assets/7f9197fb-e821-4fce-8d54-c4ba2e846240" />
