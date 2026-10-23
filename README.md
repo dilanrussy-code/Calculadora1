@@ -29,3 +29,8 @@ Operación	Resultado
 Interfaz
 
 La calculadora cuenta con una pantalla para mostrar los números y resultados, y una matriz de botones para ingresar números y seleccionar las operaciones.
+
+* <img width="262" height="266" alt="image" src="https://github.com/user-attachments/assets/377eb2ec-b1fa-4339-9f08-bd29f2caf626" />
+* <img width="265" height="268" alt="image" src="https://github.com/user-attachments/assets/3a3b28d2-cbd5-44dd-a190-7e3d3f4525c6" />
+
+
