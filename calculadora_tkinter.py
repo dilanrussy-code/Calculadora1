@@ -1,44 +1,79 @@
+import tkinter as tk
 
-from tkinter import *
-
-ventana = Tk()
+ventana = tk.Tk()
 ventana.title("Calculadora")
-ventana.geometry("300x300")
 
-Label(ventana, text="Primer numero").pack()
-n1 = Entry(ventana)
-n1.pack()
+pantalla = tk.Entry(ventana, font=("Arial", 18))
+pantalla.grid(row=0, column=0, columnspan=4)
 
-Label(ventana, text="Segundo numero").pack()
-n2 = Entry(ventana)
-n2.pack()
+numero1 = 0
+operacion = ""
 
-Label(ventana, text="Resultado").pack()
-res = Entry(ventana)
-res.pack()
 
-def sumar():
-    res.delete(0, END)
-    res.insert(0, float(n1.get()) + float(n2.get()))
+def calcular(valor):
+    global numero1, operacion
 
-def restar():
-    res.delete(0, END)
-    res.insert(0, float(n1.get()) - float(n2.get()))
+    if pantalla.get() == "Error":
+        pantalla.delete(0, tk.END)
+        numero1 = 0
+        operacion = ""
 
-def multiplicar():
-    res.delete(0, END)
-    res.insert(0, float(n1.get()) * float(n2.get()))
+    if valor == "C":
+        pantalla.delete(0, tk.END)
+        numero1 = 0
+        operacion = ""
 
-def dividir():
-    res.delete(0, END)
-    if float(n2.get()) != 0:
-        res.insert(0, float(n1.get()) / float(n2.get()))
+    elif valor in ["+", "-", "*", "/"]:
+        numero1 = float(pantalla.get())
+        operacion = valor
+        pantalla.delete(0, tk.END)
+
+    elif valor == "=":
+        numero2 = float(pantalla.get())
+
+        if operacion == "+":
+            resultado = numero1 + numero2
+        elif operacion == "-":
+            resultado = numero1 - numero2
+        elif operacion == "*":
+            resultado = numero1 * numero2
+        elif operacion == "/":
+            if numero2 == 0:
+                pantalla.delete(0, tk.END)
+                pantalla.insert(0, "Error")
+                return
+            resultado = numero1 / numero2
+
+        pantalla.delete(0, tk.END)
+        pantalla.insert(0, resultado)
+
     else:
-        res.insert(0, "Error")
+        pantalla.insert(tk.END, valor)
 
-Button(ventana, text="Sumar", command=sumar).pack()
-Button(ventana, text="Restar", command=restar).pack()
-Button(ventana, text="Multiplicar", command=multiplicar).pack()
-Button(ventana, text="Dividir", command=dividir).pack()
+
+botones = [
+    "7", "8", "9", "/",
+    "4", "5", "6", "*",
+    "1", "2", "3", "-",
+    "C", "0", "=", "+"
+]
+
+fila = 1
+columna = 0
+
+for boton in botones:
+    tk.Button(
+        ventana,
+        text=boton,
+        width=5,
+        height=2,
+        command=lambda x=boton: calcular(x)
+    ).grid(row=fila, column=columna)
+
+    columna = columna + 1
+
+    if columna == 4:
+        columna = 0
+        fila = fila + 1
 
 ventana.mainloop()
