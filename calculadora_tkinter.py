@@ -23,6 +23,9 @@ def calcular(valor):
         numero1 = 0
         operacion = ""
 
+    elif valor == "D":
+        pantalla.delete(len(pantalla.get()) - 1, tk.END)
+
     elif valor in ["+", "-", "*", "/"]:
         numero1 = float(pantalla.get())
         operacion = valor
@@ -55,7 +58,8 @@ botones = [
     "7", "8", "9", "/",
     "4", "5", "6", "*",
     "1", "2", "3", "-",
-    "C", "0", "=", "+"
+    "0", "C", "D", "+",
+    "="
 ]
 
 fila = 1
