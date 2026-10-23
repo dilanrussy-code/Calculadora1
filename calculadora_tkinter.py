@@ -23,11 +23,28 @@ def calcular(valor):
         numero1 = 0
         operacion = ""
 
-    elif valor == "D":
+    elif valor == "⌫":
         pantalla.delete(len(pantalla.get()) - 1, tk.END)
 
     elif valor in ["+", "-", "*", "/"]:
-        numero1 = float(pantalla.get())
+        if operacion == "":
+            numero1 = float(pantalla.get())
+        else:
+            numero2 = float(pantalla.get())
+
+            if operacion == "+":
+                numero1 = numero1 + numero2
+            elif operacion == "-":
+                numero1 = numero1 - numero2
+            elif operacion == "*":
+                numero1 = numero1 * numero2
+            elif operacion == "/":
+                if numero2 == 0:
+                    pantalla.delete(0, tk.END)
+                    pantalla.insert(0, "Error")
+                    return
+                numero1 = numero1 / numero2
+
         operacion = valor
         pantalla.delete(0, tk.END)
 
@@ -35,20 +52,21 @@ def calcular(valor):
         numero2 = float(pantalla.get())
 
         if operacion == "+":
-            resultado = numero1 + numero2
+            numero1 = numero1 + numero2
         elif operacion == "-":
-            resultado = numero1 - numero2
+            numero1 = numero1 - numero2
         elif operacion == "*":
-            resultado = numero1 * numero2
+            numero1 = numero1 * numero2
         elif operacion == "/":
             if numero2 == 0:
                 pantalla.delete(0, tk.END)
                 pantalla.insert(0, "Error")
                 return
-            resultado = numero1 / numero2
+            numero1 = numero1 / numero2
 
         pantalla.delete(0, tk.END)
-        pantalla.insert(0, resultado)
+        pantalla.insert(0, numero1)
+        operacion = ""
 
     else:
         pantalla.insert(tk.END, valor)
@@ -58,7 +76,7 @@ botones = [
     "7", "8", "9", "/",
     "4", "5", "6", "*",
     "1", "2", "3", "-",
-    "0", "C", "D", "+",
+    "C", "0", "⌫", "+",
     "="
 ]
 
