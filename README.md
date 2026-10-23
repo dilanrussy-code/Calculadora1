@@ -20,10 +20,10 @@ Funcionalidades
 Ejemplos de uso
 
 Operación	Resultado
-5 + 3 + 2	10
-2 * 3 * 4	24
-20 - 5 - 3	12
-100 / 2 / 5	10
+* 5 + 3 + 2	10
+* 2 * 3 * 4	24
+* 20 - 5 - 3	12
+* 100 / 2 / 5	10
 
 
 Interfaz
